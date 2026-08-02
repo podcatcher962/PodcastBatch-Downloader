@@ -1,0 +1,14 @@
+{
+  "download_dir": "",
+  "cutoff_date": "2010-01-01",
+  "threads": 3,
+  "format": "mp3",
+  "bitrate": "64k",
+  "minimize_on_dl": false,
+  "sound_notify": false,
+  "access_token": "",
+  "refresh_token": "",
+  "device_id": "",
+  "phone": "",
+  "user_agent": "Xiaoyuzhou/2.99.1(android 28)"
+}

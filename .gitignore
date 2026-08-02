@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime data (never commit)
+*.db
+*.log
+*.txt
+!小宇宙播客ID.txt
+
+# Media (never commit)
+*.mp3
+*.m4a
+*.wav
+outputs/
+downloads/
+
+# Binary tools
+ffmpeg.exe
+*.exe
+*.zip
