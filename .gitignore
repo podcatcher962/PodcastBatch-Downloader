@@ -22,7 +22,7 @@ Thumbs.db
 *.db
 *.log
 *.txt
-!小宇宙播客ID.txt
+!podcast_ids.txt
 
 # Media (never commit)
 *.mp3

@@ -1,0 +1,4 @@
+# Podcast ID list
+# Format: podcast_id or podcast_id # name - author
+# Example:
+# 61933ace1b4320461e91fd55  # MyPodcast
