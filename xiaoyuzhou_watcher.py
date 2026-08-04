@@ -113,6 +113,7 @@ class App:
 
         # 操作按钮
         self._cbtn(left, "批量导入ID文件", "#FF9800", self._import_ids, fill="x", pady=2)
+        self._cbtn(left, "备份ID到文件", "#795548", self._backup_ids, fill="x", pady=2)
         self._cbtn(left, "一键检查所有更新", "#2196F3", self._check_all, fill="x", pady=2)
         self._cbtn(left, "删除选中", "#F44336", self._del_podcast, fill="x", pady=2)
         self._cbtn(left, "清除下载记录", "#9E9E9E", self._clear_history, fill="x", pady=2)
@@ -474,17 +475,32 @@ class App:
     def _sync_podcasts_file(self):
         txt = os.path.join(APP_DIR, "小宇宙播客ID.txt")
         md  = os.path.join(APP_DIR, "小宇宙播客ID.md")
+        self._write_podcasts_files(txt, md)
+
+    def _write_podcasts_files(self, txt_path, md_path):
         try:
             conn = db_conn()
             rows = conn.execute("SELECT pid, title, author FROM podcasts").fetchall(); conn.close()
-            with open(txt, "w", encoding="utf-8") as f:
+            with open(txt_path, "w", encoding="utf-8") as f:
                 for pid, title, author in rows:
                     f.write(f"{pid}  # {title} - {author}\n")
-            with open(md, "w", encoding="utf-8") as f:
+            with open(md_path, "w", encoding="utf-8") as f:
                 f.write("# 小宇宙播客ID\n\n")
                 for pid, title, author in rows:
                     f.write(f"- [{title}](https://www.xiaoyuzhoufm.com/podcast/{pid}) — {author}\n")
         except: pass
+
+    def _backup_ids(self):
+        d = filedialog.askdirectory(title="选择备份目录")
+        if not d:
+            d = APP_DIR
+        txt = os.path.join(d, "小宇宙播客ID备份.txt")
+        md  = os.path.join(d, "小宇宙播客ID备份.md")
+        try:
+            self._write_podcasts_files(txt, md)
+            messagebox.showinfo("备份完成", f"已备份到：\n{txt}\n{md}")
+        except Exception as e:
+            messagebox.showerror("备份失败", str(e))
 
     def _del_podcast(self):
         s = self.pod_list.curselection()
