@@ -44,3 +44,11 @@ python xiaoyuzhou_watcher.py
 ## 许可
 
 MIT License，仅供学习研究使用。
+
+---
+
+### Disclaimer
+
+1. This tool is for personal study and research only. Audio content copyright belongs to respective platforms.
+2. Provided AS-IS without warranty.
+3. Users must comply with local laws in their jurisdiction.
